@@ -13,7 +13,7 @@ socket.on('mensaje', function(message) {
 });
 
 socket.on('nuevo-mensaje', function(message) {
-    console.log(message);
+    console.log(message.toString());
 });
 
 socket.emit('mensaje', { nombre: 'Demetrio' });
