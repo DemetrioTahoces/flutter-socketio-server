@@ -9,12 +9,11 @@ socket.on('disconnect', function() {
 });
 
 socket.on('mensaje', function(message) {
-    console.log(message);
+    console.log(`mensaje: ${message}`);
 });
 
 socket.on('nuevo-mensaje', function(message) {
-    console.log(message.nombre);
-    console.log(message.mensaje);
+    console.log(`nuevo-mensaje: ${message}`);
 });
 
 socket.emit('mensaje', { nombre: 'Demetrio' });
