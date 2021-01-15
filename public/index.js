@@ -12,4 +12,8 @@ socket.on('mensaje', function(message) {
     console.log(message);
 });
 
+socket.on('nuevo-mensaje', function(message) {
+    console.log(message);
+});
+
 socket.emit('mensaje', { nombre: 'Demetrio' });
