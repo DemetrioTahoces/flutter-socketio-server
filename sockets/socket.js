@@ -4,7 +4,7 @@ const Band = require('../models/band');
 
 const bands = new Bands();
 
-bands.addBand(new Band('Queen'))
+bands.addBand(new Band('Breaking Benjamin'))
 bands.addBand(new Band('Bon Jovi'))
 bands.addBand(new Band('Héroes del silencio'))
 bands.addBand(new Band('Metallica'))
@@ -29,6 +29,11 @@ io.on('connection', client => {
     client.on('votar', (payload) => {
 
         bands.voteBand(payload.id);
+        io.emit('bandas-activas', bands.getBands());
+    });
+
+    client.on('paloma', (payload) => {
+        bands.addBand(new Band(payload.name));
         io.emit('bandas-activas', bands.getBands());
     });
 
