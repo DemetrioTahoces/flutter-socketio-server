@@ -32,8 +32,13 @@ io.on('connection', client => {
         io.emit('bandas-activas', bands.getBands());
     });
 
-    client.on('paloma', (payload) => {
+    client.on('añadir-banda', (payload) => {
         bands.addBand(new Band(payload.name));
+        io.emit('bandas-activas', bands.getBands());
+    });
+
+    client.on('eliminar-banda', (payload) => {
+        bands.deleteBand(payload.id);
         io.emit('bandas-activas', bands.getBands());
     });
 
